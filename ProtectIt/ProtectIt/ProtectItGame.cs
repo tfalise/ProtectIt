@@ -36,6 +36,9 @@ namespace ProtectIt
         /// </summary>
         protected override void Initialize()
         {
+            // Debug component
+            this.Components.Add(new DebugComponent(this));
+
             // Controller components
             this.Components.Add(new MouseManager(this));
             this.Components.Add(new KeyboardManager(this));

@@ -22,6 +22,7 @@ namespace ProtectIt
         public FrameRateCounter(Game game)
             : base(game)
         {
+            this.Visible = false;
         }
 
         public override void Initialize()
@@ -33,7 +34,7 @@ namespace ProtectIt
         protected override void LoadContent()
         {
             base.LoadContent();
-            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
             this.spriteFont = this.Game.Content.Load<SpriteFont>("FrameRateFont");
 
             Vector2 textSize = spriteFont.MeasureString("FPS: 1000");

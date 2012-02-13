@@ -14,6 +14,8 @@ namespace ProtectIt
 
         private SpriteBatch spriteBatch;
 
+        private DebugComponent debug;
+
         public int Width { get; private set; }
         public int Height { get; private set; }
 
@@ -28,6 +30,8 @@ namespace ProtectIt
             get { return this.pathOrigin; }
             set
             {
+                if (this.debug != null && value != null) this.debug.PrintFormat("[TileMap] Changed path origin to ({0}, {1})", value.MapX, value.MapY);
+
                 this.pathOrigin = value;
                 this.Path = this.GetPathForTile(this.pathOrigin);
             }
@@ -51,6 +55,8 @@ namespace ProtectIt
         public override void Initialize()
         {
             base.Initialize();
+
+            this.debug = this.Game.Services.GetService<DebugComponent>();
 
             InitializeTiles();
 

@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\DebugComponent.cs" />
     <Compile Include="DrawableComponents\FrameRateCounter.cs" />
     <Compile Include="GameExtensions.cs" />
     <Compile Include="Components\KeyboardManager.cs" />
