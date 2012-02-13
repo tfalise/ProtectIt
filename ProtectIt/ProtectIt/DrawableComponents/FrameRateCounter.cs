@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace ProtectIt
 {
@@ -43,6 +44,13 @@ namespace ProtectIt
 
         public override void Update(GameTime gameTime)
         {
+            KeyboardManager keyboardManager = this.Game.Services.GetService<KeyboardManager>();
+
+            if (keyboardManager.IsKeyPressed(Keys.F) && keyboardManager.CurrentState.IsKeyDown(Keys.LeftControl))
+            {
+                this.Visible = !this.Visible;
+            }
+
             this.elapsedTime += gameTime.ElapsedGameTime;
 
             if (this.elapsedTime > TimeSpan.FromSeconds(1))

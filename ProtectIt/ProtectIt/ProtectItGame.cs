@@ -96,12 +96,6 @@ namespace ProtectIt
                 this.Components.Add(this.tileMap);
             }
 
-            if (keyboardManager.IsKeyPressed(Keys.F) && keyboardManager.CurrentState.IsKeyDown(Keys.LeftControl))
-            {
-                FrameRateCounter fps = this.Services.GetService<FrameRateCounter>();
-                fps.Visible = !fps.Visible;
-            }
-
             if (mouseManager.CurrentState.X > 0 && mouseManager.CurrentState.X < GraphicsDevice.Viewport.Width && mouseManager.CurrentState.Y > 0 && mouseManager.CurrentState.Y < GraphicsDevice.Viewport.Height)
             {
                 Tile hitTile = tileMap.GetTileAt(mouseManager.CurrentState.X, mouseManager.CurrentState.Y);
